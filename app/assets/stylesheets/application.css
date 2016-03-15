@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.container header {
+  margin-bottom: 46px;
+}
+
+.container nav {
+  margin-bottom: 46px;
+}
