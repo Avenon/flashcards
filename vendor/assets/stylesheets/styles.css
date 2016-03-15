@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.container header {
+  margin-bottom: 46px;
+}
 
-//= require bootstrap.min
-//= require styles
+.container nav {
+  margin-bottom: 46px;
+}
