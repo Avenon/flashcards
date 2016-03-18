@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Флэшкарточкер</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="container">
+  <header class="row">
+    <div class="col-md-12">
+      <h1>Флэшкарточкер</h1>
+    </div>
+  </header>
+    <nav class="row">
+      <div class="col-md-12">
+        <ul class="list-unstyled list-inline">
+          <li><a class="btn btn-info" href="#">Все карточки</a></li>
+          <li><a class="btn btn-info" href="#">Добавить карточку</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  <section class="row">
+    <div class="col-md-12">
+<%= yield %>
+    </div>
+  </section>
+</body>
+</html>
