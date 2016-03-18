@@ -15,4 +15,11 @@
  */
 
 //= require bootstrap.min
-//= require styles
+
+.container header {
+  margin-bottom: 46px;
+}
+
+.container nav {
+  margin-bottom: 46px;
+}
