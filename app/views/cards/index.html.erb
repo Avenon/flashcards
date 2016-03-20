@@ -1,0 +1,19 @@
+<h2>
+  Все карточки
+</h2>
+
+<table class="table table-bordered">
+  <tr class="info">
+    <th>Слово</th>
+    <th>Перевод</th>
+    <th>Дата проверки</th>
+  </tr>
+
+  <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.original_text %></td>
+      <td><%= card.translated_text %></td>
+      <td><%= card.review_date.strftime('%d/%m/%Y') %></td>
+    </tr>
+  <% end %>
+</table>
