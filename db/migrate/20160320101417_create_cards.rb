@@ -8,5 +8,3 @@ class CreateCards < ActiveRecord::Migration
     end
   end
 end
-
-      
