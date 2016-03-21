@@ -1,7 +1,7 @@
 <h2> Создание новой карточки</h2>
-<%= form_for @card do |f| %>
-  Оригинальный текст: <%= f.text_field :original_text %><br>
-  Переведенный текст: <%= f.text_field :translated_text %><br>
-  Дата проверки: <%= f.text_field  :review_date %><br>
+<%= simple_form_for @card do |f| %>
+  <%= f.input :original_text, label: 'Оригинальный текст', :required => false %><br>
+  <%= f.input :translated_text, label: 'Переведенный текст', :required => false %><br>
+  <%= f.input  :review_date, label: 'Дата проверки' %><br>
   <%= f.submit "Создать карточку" %>
 <% end %>
