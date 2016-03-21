@@ -14,7 +14,12 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.create(params.require(:card).permit(:original_text, :translated_text, :review_date))
-    redirect_to @card
+
+    if @card.errors.empty?
+      redirect_to @card
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -24,7 +29,12 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
     @card.update_attributes(params.require(:card).permit(:original_text, :translated_text, :review_date))
-    redirect_to @card
+
+    if @card.errors.empty?
+      redirect_to @card
+    else
+      render "edit"
+    end
   end
 
   def destroy
