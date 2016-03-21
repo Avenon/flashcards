@@ -1,7 +1,5 @@
 <h2> Редактирование карточки</h2>
 <%= simple_form_for @card do |f| %>
-  <%= f.input :original_text, label: 'Оригинальный текст', :required => false %><br>
-  <%= f.input :translated_text, label: 'Переведенный текст', :required => false %><br>
-  <%= f.input  :review_date, label: 'Дата проверки' %><br>
-  <%= f.submit "Сохранить изменения" %>
+<%= render partial: "form", locals: { f: f } %>
+<%= f.submit "Сохранить изменения" %>
 <% end %>
