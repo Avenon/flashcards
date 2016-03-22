@@ -1,5 +1,7 @@
 <h2> Создание новой карточки</h2>
+<div class="form-horizontal">
 <%= simple_form_for @card do |f| %>
 <%= render partial: "form", locals: { f: f } %>
-<%= f.submit "Создать карточку" %>
+<%= f.button :submit, "Создать карточку", class: "btn btn-info btn-sm" %>
 <% end %>
+</div>
