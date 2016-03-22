@@ -1,3 +1,3 @@
   <%= f.input :original_text, label: 'Оригинальный текст', :required => false %><br>
   <%= f.input :translated_text, label: 'Переведенный текст', :required => false %><br>
-  <%= f.input  :review_date, label: 'Дата проверки' %><br>
+  <%= f.input :review_date, as: :text, input_html: { value: (Time.now + (60*60*24*3)).strftime('%d/%m/%Y')}, label: 'Дата проверки' %><br>
