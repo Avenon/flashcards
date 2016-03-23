@@ -7,6 +7,10 @@
     <th>Слово</th>
     <th>Перевод</th>
     <th>Дата проверки</th>
+<<<<<<< HEAD
+=======
+    <th>Действия</th>
+>>>>>>> task_03
   </tr>
 
   <% @cards.each do |card| %>
@@ -14,6 +18,12 @@
       <td><%= card.original_text %></td>
       <td><%= card.translated_text %></td>
       <td><%= card.review_date.strftime('%d/%m/%Y') %></td>
+<<<<<<< HEAD
+=======
+      <td><%= link_to 'показать', card_path(card), class: "btn btn-info btn-xs" %>
+        <%= link_to 'изменить', edit_card_path(card), class: "btn btn-info btn-xs" %>
+        <%= link_to "Удалить карточку", card_path(card), method: :delete, data: { confirm: "Уверены?" }, class: "btn btn-info btn-xs" %></td>
+>>>>>>> task_03
     </tr>
   <% end %>
 </table>
