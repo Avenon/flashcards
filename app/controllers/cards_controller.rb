@@ -1,19 +1,12 @@
 class CardsController < ApplicationController
-<<<<<<< HEAD
-=======
+
   before_action :find_card, only: [:show, :edit, :update, :destroy]
->>>>>>> task_03
 
   def index
     @cards = Card.all
   end
 
   def show
-<<<<<<< HEAD
-    @card = Card.find(parms[:id])
-  end
-
-=======
   end
 
   def new
@@ -57,5 +50,5 @@ class CardsController < ApplicationController
   def find_card
     @card = Card.find(params[:id])
   end
->>>>>>> task_03
+
 end
