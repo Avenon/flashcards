@@ -6,7 +6,6 @@ class CardsController < ApplicationController
   end
 
   def show
-    #@card = Card.find(params[:id])
   end
 
   def new
@@ -24,12 +23,9 @@ class CardsController < ApplicationController
   end
 
   def edit
-    #@card = Card.find(params[:id])
   end
 
   def update
-
-    #@card = Card.find(params[:id])
     @card.update_attributes(get_card_params)
 
     if @card.errors.empty?
@@ -40,7 +36,6 @@ class CardsController < ApplicationController
   end
 
   def destroy
-   # @card = Card.find(params[:id])
     @card.destroy
     redirect_to cards_path
   end
