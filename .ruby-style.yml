@@ -152,6 +152,12 @@ Metrics/CyclomaticComplexity:
     cases needed to validate a method.
   Enabled: false
   Max: 6
+Metrics/LineLength:
+  Description: Avoid strings longer than 10 lines of code.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#short-methods
+  Enabled: false
+  CountComments: false
+  Max: 300
 Metrics/MethodLength:
   Description: Avoid methods longer than 10 lines of code.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#short-methods
