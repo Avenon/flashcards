@@ -5,6 +5,7 @@ class Card < ActiveRecord::Base
     @card = Card.find(get_home_params[:id])
     @card.update_attributes(review_date: @card[:review_date] + 3.days)
   end
+
   def self.find_random_card
     # array = Card.check_date.map(&:id) --Вариант передачи параметра в метод .map
     # Card.check_date.pluck(:id)[rand(Card.check_date.pluck(:id).size)]
