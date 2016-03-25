@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @card_id = Card.find_random_card
-    @card = Card.find(@card_id)
+    @card = Card.find(Card.find_random_card)
   end
 
   def checktranslate
