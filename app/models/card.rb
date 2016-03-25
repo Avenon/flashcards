@@ -6,10 +6,10 @@ class Card < ActiveRecord::Base
     # array = Card.check_date.map(&:id) --Вариант передачи параметра в метод .map
     # Card.check_date.pluck(:id)[rand(Card.check_date.pluck(:id).size)]
     @card = Card.check_date
-    if @card.exists?
-      @card = @card.find(@card)
+    @card = if @card.exists?
+      @card.find(@card)
     else
-      @card = nil
+      nil
     end
   end
 
