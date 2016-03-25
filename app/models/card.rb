@@ -4,16 +4,17 @@ class Card < ActiveRecord::Base
 
   def self.find_random_card
     # array = Card.check_date.map(&:id) --Вариант передачи параметра в метод .map
-    Card.check_date.pluck(:id)[rand(Card.check_date.pluck(:id).size)]
+    # Card.check_date.pluck(:id)[rand(Card.check_date.pluck(:id).size)]
+    Card.check_date
   end
 
-  scope :check_date, -> { where('review_date <= ?', Time.now) }
+  scope :check_date, -> { where('review_date <= ?', Time.now).order("random()").limit(1) }
 
   def checkusertranslate(usertext, cardtext)
     if usertext.mb_chars.casecmp(cardtext.mb_chars) == 0
-      "success"
+      true
     else
-      "error"
+      false
     end
   end
 end
