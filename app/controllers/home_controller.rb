@@ -4,13 +4,13 @@ class HomeController < ApplicationController
   end
 
   def check_card
-    card_find_update
+    Card.card_find_update(get_home_params[:id])
+    flash.now[:success] = "Успех! Перевод верен"
+    flash.now[:notice] = "Ошибка! Перевод ошибочный"
 
-    if @card.check_translate(get_home_params[:usertext], @card[:original_text])
-      flash.now[:notice] = "Успех! Перевод верен"
+    if Card.check_translate(get_home_params[:usertext])
       render 'success'
     else
-      flash.now[:notice] = "Ошибка! Перевод ошибочный"
       render 'error'
     end
   end

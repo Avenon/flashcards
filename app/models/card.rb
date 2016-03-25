@@ -1,8 +1,8 @@
 class Card < ActiveRecord::Base
   validates :original_text, :translated_text, :review_date, presence: true
   validates_with CompareStrings
-  def card_find_update
-    @card = Card.find(get_home_params[:id])
+  def self.card_find_update(id)
+    @card = Card.find(id)
     @card.update_attributes(review_date: @card[:review_date] + 3.days)
   end
 
@@ -20,7 +20,7 @@ class Card < ActiveRecord::Base
 
   scope :check_date, -> { where('review_date <= ?', Time.now).order("random()").limit(1) }
 
-  def check_translate(usertext, cardtext)
-    usertext.mb_chars.casecmp(cardtext.mb_chars) == 0
+  def self.check_translate(usertext)
+    usertext.mb_chars.casecmp(@card[:original_text].mb_chars) == 0
   end
 end
