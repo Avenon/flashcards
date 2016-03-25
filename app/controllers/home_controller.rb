@@ -5,15 +5,16 @@ class HomeController < ApplicationController
   end
 
   def checktranslate
-    @user_check = params.require(:home).permit(:usertext)
-    @card_update = params.require(:home).permit(:id, :original_text, :translated_text, :review_date)
-    @card = Card.find(@card_update[:id])
-    @card.update_attributes(@card_update)
+    @home_params = get_home_params
+    @card = Card.find(@home_params[:id])
+    @card.update_attributes(:id => @home_params[:id], :original_text => @home_params[:original_text], :translated_text => @home_params[:translated_text], :review_date => @home_params[:review_date])
 
-    if @user_check[:usertext].mb_chars.casecmp(@card_update[:original_text].mb_chars) == 0
-      render "success"
-    else
-      render "error"
-    end
+    render @card.checkusertranslate(@home_params[:usertext], @home_params[:original_text])
+  end
+
+  private
+
+  def get_home_params
+    params.require(:home).permit(:id, :usertext, :original_text, :translated_text, :review_date)
   end
 end

@@ -8,4 +8,12 @@ class Card < ActiveRecord::Base
   end
 
   scope :check_date, -> { where('review_date <= ?', Time.now) }
+
+  def checkusertranslate(usertext, cardtext)
+    if usertext.mb_chars.casecmp(cardtext.mb_chars) == 0
+      "success"
+    else
+      "error"
+    end
+  end
 end
