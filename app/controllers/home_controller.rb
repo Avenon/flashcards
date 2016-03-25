@@ -1,20 +1,18 @@
 class HomeController < ApplicationController
   def index
     @card = Card.find_random_card
-
-    if @card.exists?
-      @card = @card.find(@card)
-    else
-      @card = nil
-    end
   end
 
-  def checktranslate
-    @home_params = get_home_params
-    @card = Card.find(@home_params[:id])
-    @card.update_attributes(review_date: @home_params[:review_date])
+  def check_card
+    get_home_params
+    @card = Card.find(get_home_params[:id])
+    @reviewdate = @card[:review_date] + (60*60*24*3)
+    @card.update_attributes(review_date: @reviewdate)
+    @usertext = get_home_params[:usertext]
+    @cardtest = @card[:original_text]
+    @reviewdate = @card[:review_date]
 
-    if @card.checkusertranslate(@home_params[:usertext], @home_params[:original_text])
+    if @card.checkusertranslate(get_home_params[:usertext], @card[:original_text])
       render 'success'
     else
       render 'error'
@@ -24,6 +22,6 @@ class HomeController < ApplicationController
   private
 
   def get_home_params
-    params.require(:home).permit(:id, :usertext, :original_text, :translated_text, :review_date)
+    params.require(:home).permit(:id, :usertext)
   end
 end

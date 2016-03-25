@@ -8,11 +8,8 @@
 <h3> Введите оригинальный текст </h3>
 Введите перевод слова: <b><%= @card.translated_text %></b>
 
-<%= simple_form_for :home, url: { action: "checktranslate" } do |f| %>
+<%= simple_form_for :home, url: { action: "check_card" } do |f| %>
   <%= f.input_field :usertext %>
-  <%= f.hidden_field :original_text, value: @card.original_text %>
-  <%= f.hidden_field :translated_text, value: @card.translated_text %>
-  <%= f.hidden_field :review_date, value: @card.review_date + (60*60*24*3) %>
   <%= f.hidden_field :id, value: @card.id %>
   <%= f.button :submit, "Проверить", class: "btn btn-info btn-sm" %>
 <% end %>
