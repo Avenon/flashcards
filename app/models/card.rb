@@ -12,10 +12,6 @@ class Card < ActiveRecord::Base
   scope :check_date, -> { where('review_date <= ?', Time.now).order("random()").limit(1) }
 
   def checkusertranslate(usertext, cardtext)
-    if usertext.mb_chars.casecmp(cardtext.mb_chars) == 0
-      true
-    else
-      false
-    end
+    usertext.mb_chars.casecmp(cardtext.mb_chars) == 0
   end
 end
