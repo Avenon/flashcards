@@ -3,8 +3,8 @@ class Card < ActiveRecord::Base
   validates_with CompareStrings
 
   def self.find_random_card
-    array = Card.check_date.map(&:id)
-    array[rand(array.size)]
+# array = Card.check_date.map(&:id) --Вариант передачи параметра в метод .map
+    Card.check_date.pluck(:id)[rand(Card.check_date.pluck(:id).size)]
   end
 
   scope :check_date, -> { where('review_date <= ?', Time.now) }
