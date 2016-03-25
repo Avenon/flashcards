@@ -1,5 +1,8 @@
 <p>
   Первый в мире удобный менеджер флеш-карточек. Именно так.
+</p>
+<h3> Введите оригинальный текст </h3>
+<p>
   <div class="form-horizontal">
   <%= simple_form_for @card do |f| %>
   <div class="form-group">
@@ -21,7 +24,7 @@
 <div class="form-group">
   <%= f.label :review_date, "Дата проверки", class: 'col-sm-2 control-label' %>
     <div class="col-sm-3">
-      <%= f.input_field :review_date, as: :string, value: @card.review_date.strftime('%d/%m/%Y'), :required => false, class: "form-control"  %>
+      <%= f.input_field :review_date, as: :string, value: (@card.review_date + (60*60*24*3)).strftime('%d/%m/%Y'), :required => false, class: "form-control"  %>
   </div>
       <div class="col-sm-7">
     </div>
