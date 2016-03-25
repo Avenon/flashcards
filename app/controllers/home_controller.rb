@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @card = Card.find(Card.find_random_card)
+    if Card.find_random_card.nil?
+      @card = nil
+    else
+      @card = Card.find(Card.find_random_card)
+    end
   end
 
   def checktranslate
