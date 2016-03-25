@@ -1,7 +1,7 @@
 <h3> <%= flash.now[:notice] %> </h3>
 
-Ваш перевод: <%= @usertext %>
+Ваш перевод: <%= flash.now[:usertext] %>
 <br>
-Оригинальный текст: <%= @cardtest %>
+Оригинальный текст: <%= flash.now[:original_text] %>
 <br>
-Дата проверки: <%= @reviewdate %>
+Новая дата проверки: <%= flash.now[:review_date] %>

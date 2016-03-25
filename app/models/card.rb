@@ -6,7 +6,11 @@ class Card < ActiveRecord::Base
     # array = Card.check_date.map(&:id) --Вариант передачи параметра в метод .map
     # Card.check_date.pluck(:id)[rand(Card.check_date.pluck(:id).size)]
     @card = Card.check_date
-    @card = @card.find(@card)
+    if @card.exists?
+      @card = @card.find(@card)
+    else
+      @card = nil
+    end
   end
 
   scope :check_date, -> { where('review_date <= ?', Time.now).order("random()").limit(1) }
