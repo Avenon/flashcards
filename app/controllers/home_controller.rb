@@ -5,14 +5,17 @@ class HomeController < ApplicationController
 
   def check_card
     Card.increase_review_date(get_home_params[:id])
-    #flash.now[:success] = "Успех! Перевод верен"
-    #flash.now[:notice] = "Ошибка! Перевод ошибочный"
 
-  if Card.check_translate(get_home_params[:usertext])
-      flash.now[:notice] =  "Успех! Перевод верен"
+  flash.now[:notice] =
+    if Card.check_translate(get_home_params[:usertext])
+      "Успех! Перевод верен"
+    else
+      "Ошибка! Перевод ошибочный"
+    end
+
+    if Card.check_translate(get_home_params[:usertext])
       render 'success'
     else
-      flash.now[:notice] =  "Ошибка! Перевод ошибочный"
       render 'error'
     end
   end

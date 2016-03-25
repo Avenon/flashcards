@@ -2,7 +2,6 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, :review_date, presence: true
   validates_with CompareStrings
   def self.increase_review_date(id)
-    #@card = Card.find(id)
     @card.update_attributes(review_date: @card[:review_date] + 3.days)
   end
 
