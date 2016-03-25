@@ -4,10 +4,9 @@ class HomeController < ApplicationController
   end
 
   def check_card
-    @card = Card.find(get_home_params[:id])
-    @card.update_attributes(review_date: @card[:review_date] + 3.days)
+    card_find_update
 
-    if @card.checkusertranslate(get_home_params[:usertext], @card[:original_text])
+    if @card.check_translate(get_home_params[:usertext], @card[:original_text])
       flash.now[:notice] = "Успех! Перевод верен"
       render 'success'
     else
