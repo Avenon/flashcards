@@ -11,7 +11,6 @@ class HomeController < ApplicationController
     @card.update_attributes(@card_update)
 
     if @user_check[:usertext].mb_chars.casecmp(@card_update[:original_text].mb_chars) == 0
-    #if @user_check[:usertext].downcase == @card_update[:original_text].downcase
       render "success"
     else
       render "error"
