@@ -17,7 +17,7 @@
 <div class="form-group">
   <%= f.label :review_date, "Дата проверки", class: 'col-sm-2 control-label' %>
     <div class="col-sm-3">
-      <%= f.input_field :review_date, as: :string, value: (Time.now + (60 * 60 * 24 * 3)).strftime('%d/%m/%Y'), class: "form-control"  %>
+      <%= f.input_field :review_date, as: :string, value: (Time.now + 3.days).strftime('%d/%m/%Y'), class: "form-control"  %>
   </div>
       <div class="col-sm-7">
     </div>
