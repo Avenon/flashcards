@@ -1,8 +1,12 @@
 class Card < ActiveRecord::Base
   validates :original_text, :translated_text, :review_date, presence: true
   validates_with CompareStrings
+  before_create do
+    self.review_date = Time.now + 3.days
+  end
+
   def self.increase_review_date
-    @card.update_attributes(review_date: @card[:review_date] + 3.days)
+    @card.update(review_date: Time.now + 3.days)
   end
 
   def self.find_random_card
