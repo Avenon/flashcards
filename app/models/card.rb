@@ -6,7 +6,7 @@ class Card < ActiveRecord::Base
   end
 
   def increase_review_date
-    update(review_date: Time.now + 3.days)
+    update(review_date: self.review_date + 3.days)
   end
 
   def self.find_random_card
