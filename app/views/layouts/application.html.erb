@@ -25,7 +25,10 @@
 
   <section class="row">
     <div class="col-md-12">
-<%= yield %>
+     <% flash.each do |key, value| %>
+        <%= value %>
+      <% end %>
+    <%= yield %>
     </div>
   </section>
 </body>
