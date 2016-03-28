@@ -6,11 +6,13 @@
 <h3> Карточки кончились </h3>
 <% else %>
 <h3> Введите оригинальный текст </h3>
-Введите перевод слова: <b><%= @card.translated_text %></b>
+<% @card.each do |i| %>
+Введите перевод слова:  <b> <%= i.translated_text %></b>
 
 <%= simple_form_for :home, url: { action: "check_card" } do |f| %>
   <%= f.input_field :usertext %>
-  <%= f.hidden_field :id, value: @card.id %>
+  <%= f.hidden_field :id, value: i.id %>
   <%= f.button :submit, "Проверить", class: "btn btn-info btn-sm" %>
-<% end %>
+      <% end %>
+  <% end %>
 <% end %>
