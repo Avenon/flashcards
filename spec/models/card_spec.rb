@@ -11,6 +11,11 @@ RSpec.describe Card, type: :model do
     expect(card.check_translate("hOuSe")).to eq(true)
   end
 
+  it "user text with capslock should be equal to original text" do
+    card = Card.new(original_text: "test")
+    expect(card.check_translate("gotr")).to eq(false)
+  end
+
   it "review date must be increase to 3 day" do
     card = Card.create(original_text: "test1", translated_text: "текст1", review_date: Time.now)
     expect(card.increase_review_date).to eq(true)
