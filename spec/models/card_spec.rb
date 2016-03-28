@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Card, :type => :model do
+RSpec.describe Card, type: :model do
   it "user text should be equal to original text" do
     card = Card.new(original_text: "house")
     expect(card.check_translate("house")) == true
