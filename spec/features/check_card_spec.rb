@@ -1,6 +1,6 @@
 require "rails_helper"
-describe 'Check card translate' do
 
+describe 'Check card translate' do
   let!(:card) { FactoryGirl.create(:card) }
 
   it "correct translation must be show 'Успех'" do
