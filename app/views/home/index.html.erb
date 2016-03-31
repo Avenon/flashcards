@@ -10,7 +10,7 @@
 Введите перевод слова:  <b> <%= i.translated_text %></b>
 
 <%= simple_form_for :home, url: { action: "check_card" } do |f| %>
-  <%= f.input_field :usertext %>
+  <%= f.input_field :usertext, class: "usertext"  %>
   <%= f.hidden_field :id, value: i.id %>
   <%= f.button :submit, "Проверить", class: "btn btn-info btn-sm" %>
       <% end %>

@@ -2,7 +2,7 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, :review_date, presence: true
   validates_with CompareStrings
   before_create do
-    self.review_date = Time.now + 3.days
+    self.review_date = Time.now
   end
 
   def increase_review_date
