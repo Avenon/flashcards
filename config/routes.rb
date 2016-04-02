@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root "home#index"
   resources :cards
   post "check_card" => "home#check_card"
+  resources :users
+  #get "sign_in" => 'user#auth'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
