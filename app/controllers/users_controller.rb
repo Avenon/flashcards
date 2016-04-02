@@ -1,49 +1,52 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:index, :new, :create]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def new
     @user = User.new
   end
 
+  def edit
+  end
+
   def create
-    @user = User.create(get_user_params)
+    @user = User.new(get_user_params)
 
     if @user.save
-      redirect_to users_path
+      login(params[:user][:email], params[:user][:password])
+       redirect_to root_path
     else
-      render "new"
+      render :new
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def update
-    @user = User.find(params[:id])
-    @user.update_attributes(get_user_params)
-
-    if @user.errors.empty?
+    if @user.update(get_user_params)
       redirect_to @user
     else
-      render "edit"
+      render :edit
     end
   end
 
   def destroy
     @user.destroy
-    redirect_to users_path
+    redirect_to users_url
   end
 
   private
 
+  def set_user
+      @user = User.find(params[:id])
+    end
+
   def get_user_params
-    params.require(:user).permit(:login, :email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end

@@ -16,6 +16,10 @@ class Card < ActiveRecord::Base
     where('review_date <= ?', Time.now).order("random()").limit(1)
   end
 
+  def self.user_cards(id)
+    where('user_id = ?', id)
+  end
+
   def check_translate(usertext)
     usertext.mb_chars.casecmp(original_text.mb_chars) == 0
   end

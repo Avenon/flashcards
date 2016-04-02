@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @card = Card.find_random_card
+    @card = Card.user_cards(current_user.id).find_random_card
   end
 
   def check_card
-    @card = Card.find(get_home_params[:id])
+    @card = Card.user_cards(current_user.id).find(get_home_params[:id])
     result = @card.check_translate(get_home_params[:usertext])
     @card.increase_review_date
     flash[:notice] =

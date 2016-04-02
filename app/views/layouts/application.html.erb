@@ -10,16 +10,28 @@
 </head>
 <body class="container">
   <header class="row">
-    <div class="col-md-12">
+    <div class="col-md-10">
       <h1>Флэшкарточкер</h1>
     </div>
+    <div id="nav" class="col-md-2">
+    <% if current_user %>
+      <%= link_to "Профиль", edit_user_path(current_user.id), class: "btn btn-info btn-xs"  %>
+      <%= link_to "Выход", :logout, method: :post, class: "btn btn-info btn-xs"  %>
+    <% else %>
+      <%= link_to "Регистрация", new_user_path, class: "btn btn-info btn-xs"  %> |
+      <%= link_to "Войти", :login, class: "btn btn-info btn-xs"  %>
+    <% end %>
+  </div>
+  <div>
+    <p id="notice"><%= flash[:notice] %></p>
+    <p id="alert"><%= flash[:alert] %></p>
+  </div>
   </header>
     <nav class="row">
       <div class="col-md-12">
         <ul class="list-unstyled list-inline">
           <li><%= link_to 'Все карточки', cards_path, class: "btn btn-info" %></li>
           <li><%= link_to 'Добавить карточку', new_card_path, class: "btn btn-info" %></li>
-          <li><%= link_to 'Регистрация', new_user_path, class: "btn btn-info" %></li>
         </ul>
       </div>
     </nav>
