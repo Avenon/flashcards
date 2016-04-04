@@ -50,6 +50,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.11.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -87,6 +92,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.99.1)
+    mini_magick (4.5.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -198,11 +204,13 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  carrierwave
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   nokogiri
   pg
   rails (= 4.2.6)
