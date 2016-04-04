@@ -16,5 +16,6 @@
 !/log/.keep
 /tmp
 
-#Игнорим ненужные файлы
+# Игнорим ненужные файлы
 config/database.yml
+public/uploads/*
