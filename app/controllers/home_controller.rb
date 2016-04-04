@@ -1,6 +1,12 @@
 class HomeController < ApplicationController
   def index
-    @card = current_user.cards.find_random_card
+    active_deck = current_user.decks.find_active_deck
+
+    if active_deck.empty?
+      @card = current_user.cards.find_random_card
+    else
+      @card = current_user.cards.where('deck_id = ?', active_deck).find_random_card
+    end
   end
 
   def check_card
