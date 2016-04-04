@@ -2,6 +2,7 @@ class Card < ActiveRecord::Base
   belongs_to :user
   validates :original_text, :translated_text, :review_date, presence: true
   validates_with CompareStrings
+  mount_uploader :avatar, AvatarUploader
   before_create do
     self.review_date = Time.now
   end

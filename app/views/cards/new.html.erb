@@ -3,6 +3,7 @@
 <%= simple_form_for @card do |f| %>
 <%= render partial: "form", locals: { f: f } %>
 <%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.file_field :avatar %>
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
 <%= f.button :submit, "Создать карточку", class: "btn btn-info btn-sm" %>
