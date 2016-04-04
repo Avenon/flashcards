@@ -1,0 +1,21 @@
+<h2>
+  Все колоды
+</h2>
+
+<table class="table table-bordered">
+  <tr class="info">
+    <th>Описание колоды</th>
+    <th>Активная колода</th>
+    <th>Действия</th>
+  </tr>
+
+  <% @decks.each do |deck| %>
+    <tr>
+      <td><%= deck.description %></td>
+      <td><%= deck.active %></td>
+      <td><%= link_to 'показать', deck_path(deck), class: "btn btn-info btn-xs" %>
+        <%= link_to 'изменить', edit_deck_path(deck), class: "btn btn-info btn-xs" %>
+        <%= link_to "Удалить колоду", deck_path(deck), method: :delete, data: { confirm: "Уверены?" }, class: "btn btn-info btn-xs" %></td>
+    </tr>
+  <% end %>
+</table>

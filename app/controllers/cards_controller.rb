@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :find_card, only: [:show, :edit, :update, :destroy]
+  before_action :check_deck, only: [:new, :create]
 
   def index
     @cards = current_user.cards
@@ -48,5 +49,9 @@ class CardsController < ApplicationController
 
   def find_card
     @card = Card.find(params[:id])
+  end
+
+  def check_deck
+    @decks = current_user.decks
   end
 end

@@ -1,4 +1,9 @@
 <h2> Создание новой карточки</h2>
+
+<% unless @decks.exists? %>
+<h3> Сначала создайте колоду! </h3>
+<% else %>
+<h3> Введите оригинальный текст </h3>
 <div class="form-horizontal">
 <%= simple_form_for @card do |f| %>
 <%= render partial: "form", locals: { f: f } %>
@@ -11,3 +16,4 @@
 </div>
 <% end %>
 </div>
+<% end %>
