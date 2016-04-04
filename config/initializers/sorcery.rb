@@ -323,7 +323,6 @@ Rails.application.config.sorcery.configure do |config|
     #
     # user.reset_password_token_expires_at_attribute_name =
 
-
     # when was email sent, used for hammering protection.
     # Default: `:reset_password_email_sent_at`
     #
