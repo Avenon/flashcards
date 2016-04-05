@@ -2,10 +2,11 @@ class HomeController < ApplicationController
   def index
     active_deck = current_user.decks.find_active_deck
 
-    if active_deck.empty?
+    if active_deck.nil?
       @card = current_user.cards.find_random_card
     else
-      @card = current_user.cards.where('deck_id = ?', active_deck).find_random_card
+      # Берем карту из активной колоды
+      @card = current_user.cards.find_random_card.where('deck_id = ?', active_deck.id)
     end
   end
 

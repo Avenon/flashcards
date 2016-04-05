@@ -41,19 +41,16 @@ class DecksController < ApplicationController
   end
 
   def activate
-    @decks = current_user.decks
-    @decks.each do |deck|
-      deck.update_attributes(active: false)
+    active_deck = current_user.decks.find_active_deck
+    unless active_deck.nil? then
+      active_deck.update(active: false)
     end
-    deck = Deck.find(params[:id])
-    deck.active = true
-    deck.save
+    @deck.update(active: true)
     redirect_to decks_path
   end
 
   def deactivate
-    @deck.active = false
-    @deck.save
+    @deck.update(active: false)
     redirect_to decks_path
   end
 
