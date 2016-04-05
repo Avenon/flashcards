@@ -12,7 +12,7 @@ describe 'Check activate/deactivate decks' do
     click_button "Войти"
     visit edit_deck_path(deck)
     click_link "Активировать"
-    expect(page.find(:xpath, '//table/tr[2]/td[2]').text).to eq('true')
+    expect(Deck.last.active).to eq(true)
   end
 
   it "Field active of the deck should be changed status on false, after click deactivate" do
@@ -24,6 +24,6 @@ describe 'Check activate/deactivate decks' do
     visit edit_deck_path(deck)
     deck.active = true
     click_link "Неактивная"
-    expect(page.find(:xpath, '//table/tr[2]/td[2]').text).to eq('false')
+    expect(Deck.last.active).to eq(false)
   end
 end
