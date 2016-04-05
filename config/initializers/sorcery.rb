@@ -2,10 +2,17 @@
 # The default is nothing which will include only core features (password encryption, login/logout).
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging, :external
-Rails.application.config.sorcery.submodules = []
+Rails.application.config.sorcery.submodules = [:external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
+  config.external_providers = [:twitter]
+
+  config.twitter.key = "1hq8DYjF3UxchSC6iVPohJzu5"
+  config.twitter.secret = "WPIhkqbG9vRBGODGXTB3uuxC7vbbeREsIslRchwow3nTZqhQui"
+  config.twitter.callback_url = "https://aqueous-oasis-51901.herokuapp.com/oauth/callback?provider=twitter"
+  config.twitter.user_info_mapping = {:username => "screen_name"}
+
   # -- core --
   # What controller action to call for non-authenticated users. You can also
   # override the 'not_authenticated' method of course.
@@ -173,6 +180,8 @@ Rails.application.config.sorcery.configure do |config|
 
   # --- user config ---
   config.user_config do |user|
+    # -- external --
+    user.authentications_class = Authentication
     # -- core --
     # specify username attributes, for example: [:username, :email].
     # Default: `[:email]`

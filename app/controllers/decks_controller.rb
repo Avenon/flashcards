@@ -41,7 +41,7 @@ class DecksController < ApplicationController
   end
 
   def activate
-    if @deck.active then
+    if @deck.active
       @deck.update(active: false)
     else
       @deck.update(active: true)

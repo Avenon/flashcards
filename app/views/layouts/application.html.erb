@@ -20,6 +20,7 @@
     <% else %>
       <%= link_to "Регистрация", new_user_path, class: "btn btn-info btn-xs"  %> |
       <%= link_to "Войти", :login, class: "btn btn-info btn-xs"  %>
+      <%= link_to 'Войти через Twitter', auth_at_provider_path(:provider => :twitter) %>
     <% end %>
   </div>
   <div>
