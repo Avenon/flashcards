@@ -6,7 +6,7 @@ class HomeController < ApplicationController
       @card = current_user.cards.find_random_card
     else
       # Берем карту из активной колоды
-      @card = current_user.cards.find_random_card.where('deck_id = ?', active_deck.id)
+      @card = current_user.cards.find_random_card.where(deck_id: active_deck.id)
     end
   end
 
