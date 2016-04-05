@@ -27,4 +27,3 @@ describe 'Check activate/deactivate decks' do
     expect(page).to have_content("false")
   end
 end
-

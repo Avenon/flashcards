@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   before_action :find_deck, only: [:show, :edit, :update, :destroy, :activate, :deactivate]
-
+  before_action :change_status_to_false, only: [:activate]
   def index
     @decks = current_user.decks
   end
@@ -41,10 +41,7 @@ class DecksController < ApplicationController
   end
 
   def activate
-    active_deck = current_user.decks.find_active_deck
-    unless active_deck.nil? then
-      active_deck.update(active: false)
-    end
+
     @deck.update(active: true)
     redirect_to decks_path
   end
@@ -62,5 +59,10 @@ class DecksController < ApplicationController
 
   def find_deck
     @deck = Deck.find(params[:id])
+  end
+
+  def change_status_to_false
+    active_deck = current_user.decks.find_active_deck
+    active_deck.update(active: false) unless active_deck.nil?
   end
 end
