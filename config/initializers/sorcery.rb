@@ -11,7 +11,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.key = "1hq8DYjF3UxchSC6iVPohJzu5"
   config.twitter.secret = "WPIhkqbG9vRBGODGXTB3uuxC7vbbeREsIslRchwow3nTZqhQui"
   config.twitter.callback_url = "https://aqueous-oasis-51901.herokuapp.com/oauth/callback?provider=twitter"
-  config.twitter.user_info_mapping = {:username => "screen_name"}
+  config.twitter.user_info_mapping = { username: "screen_name" }
 
   # -- core --
   # What controller action to call for non-authenticated users. You can also
