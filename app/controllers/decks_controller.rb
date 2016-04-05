@@ -41,7 +41,6 @@ class DecksController < ApplicationController
   end
 
   def activate
-
     @deck.update(active: true)
     redirect_to decks_path
   end
