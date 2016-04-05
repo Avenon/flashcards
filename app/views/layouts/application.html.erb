@@ -27,6 +27,7 @@
     <p id="alert"><%= flash[:alert] %></p>
   </div>
   </header>
+  <% if current_user %>
     <nav class="row">
       <div class="col-md-12">
         <ul class="list-unstyled list-inline">
@@ -37,7 +38,7 @@
         </ul>
       </div>
     </nav>
-
+  <% end %>
   <section class="row">
     <div class="col-md-12">
      <% flash.each do |key, value| %>
