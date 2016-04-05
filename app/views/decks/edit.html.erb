@@ -1,4 +1,5 @@
 <h2> Редактирование колоду</h2>
+
 <div class="form-horizontal">
 <%= simple_form_for @deck do |f| %>
 <%= render partial: "form", locals: { f: f } %>
@@ -6,8 +7,7 @@
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
 <%= f.button :submit, "Сохранить изменения", class: "btn btn-info btn-sm" %>
-<%= link_to 'Активировать', activate_deck_path(@deck), method: :post, data: { confirm: "Активировать?" }, class: "btn btn-info btn-sm" %>
-<%= link_to 'Неактивная', deactivate_deck_path(@deck), method: :post, data: { confirm: "Снять активность?" }, class: "btn btn-info btn-sm" %>
+<%= link_to 'Активировать/Снять активность', activate_deck_path(@deck), method: :post, data: { confirm: "Активировать?" }, class: "btn btn-info btn-sm" %>
 </div>
 </div>
 <% end %>

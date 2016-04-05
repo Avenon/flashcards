@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :decks do
     member do
       post :activate
-      post :deactivate
     end
   end
 
