@@ -41,11 +41,7 @@ class DecksController < ApplicationController
   end
 
   def activate
-    if @deck.active
-      @deck.update(active: false)
-    else
-      @deck.update(active: true)
-    end
+    @deck.active ? @deck.update(active: false) : @deck.update(active: true)
     redirect_to decks_path
   end
 
