@@ -8,9 +8,9 @@ Rails.application.config.sorcery.submodules = [:external]
 Rails.application.config.sorcery.configure do |config|
   config.external_providers = [:twitter]
 
-  config.twitter.key = "#{Rails.application.secrets.twitter_key}"
-  config.twitter.secret = "WPIhkqbG9vRBGODGXTB3uuxC7vbbeREsIslRchwow3nTZqhQui"
-  config.twitter.callback_url = "https://aqueous-oasis-51901.herokuapp.com/oauth/callback?provider=twitter"
+  config.twitter.key = ENV["TWITTER_KEY"]
+  config.twitter.secret = ENV["TWITTER_SECRET"]
+  config.twitter.callback_url = ENV["TWITTER_CALLBACK"]
   config.twitter.user_info_mapping = { username: "screen_name" }
 
   # -- core --
