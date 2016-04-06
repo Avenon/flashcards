@@ -1,6 +1,13 @@
 class HomeController < ApplicationController
   def index
-    @card = current_user.cards.find_random_card
+    active_deck = current_user.decks.find_active_deck
+
+    if active_deck.nil?
+      @card = current_user.cards.find_random_card
+    else
+      # Берем карту из активной колоды
+      @card = current_user.cards.find_random_card.where(deck_id: active_deck.id)
+    end
   end
 
   def check_card

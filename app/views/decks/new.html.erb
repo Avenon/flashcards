@@ -1,0 +1,13 @@
+<h2> Создание новой колоды</h2>
+<div class="form-horizontal">
+<%= simple_form_for @deck do |f| %>
+<%= render partial: "form", locals: { f: f } %>
+<%= f.hidden_field :active, value: false %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+<%= f.button :submit, "Создать колоду", class: "btn btn-info btn-sm" %>
+</div>
+</div>
+<% end %>
+</div>

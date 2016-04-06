@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :find_card, only: [:show, :edit, :update, :destroy]
+  before_action :check_deck, only: [:new, :create]
 
   def index
     @cards = current_user.cards
@@ -43,10 +44,14 @@ class CardsController < ApplicationController
   private
 
   def get_card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date, :user_id, :avatar)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :user_id, :avatar, :deck_id)
   end
 
   def find_card
     @card = Card.find(params[:id])
+  end
+
+  def check_deck
+    @decks = current_user.decks
   end
 end

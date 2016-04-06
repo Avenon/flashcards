@@ -2,6 +2,7 @@ require "rails_helper"
 
 describe 'Check picture upload' do
   let!(:user) { create(:user, email: "test@test.ru", password: "test", password_confirmation: "test") }
+  let!(:deck) { FactoryGirl.create(:deck, user_id: user.id) }
 
   it "Picture must be load success" do
     visit root_path
