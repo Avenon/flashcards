@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  authenticates_with_sorcery! do |config|
+    config.authentications_class = Authentication
+  end
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -9,4 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :cards, dependent: :destroy
   has_many :decks, dependent: :destroy
+  has_many :authentications, dependent: :destroy
+
+  accepts_nested_attributes_for :authentications
 end
