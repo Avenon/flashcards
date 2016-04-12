@@ -10,38 +10,44 @@ class Card < ActiveRecord::Base
     self.attempt = 1
   end
 
-  def set_level
+  def set_review_period
     level = self.level
-    case level
+    review_period = case level
       when 0
-        level = 0
+        0
       when 1
-        level = 12.hours
+        12.hours
       when 2
-        level = 3.days
+        3.days
       when 3
-        level = 1.weeks
+        1.weeks
       when 4
-        level = 2.weeks
+        2.weeks
       when 5
-        level = 1.month
+        1.month
     end
   end
 
   def increase_review_date(review)
     if review == true
-      update(attempt: 1) if self.attempt <= 3
-      update(level: self.level + 1) if self.level < 5
-      level = self.set_level
-      update(review_date: self.review_date + level)
+      if self.level < 5
+        self.level += 1
+      end
+      review_period = self.set_review_period
+      update(review_date: self.review_date + review_period, attempt: 1, level: self.level)
     else
       if self.attempt < 3
         update(attempt: self.attempt + 1)
       else
-        update(attempt: self.attempt - 1) if self.level >0
-        update(level: self.level - 1) if self.level > 0
-        level = self.set_level
-        update(review_date: self.review_date - level)
+        if self.level > 0
+          self.attempt -= 1
+        end
+
+        if self.level > 0
+          self.level -= 1
+        end
+        review_period = self.set_review_period
+        update(review_date: self.review_date - review_period, attempt: self.attempt, level: self.level)
       end
     end
   end
