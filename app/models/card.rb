@@ -9,7 +9,7 @@ class Card < ActiveRecord::Base
   end
 
   def set_review_period
-    review_period = case self.level
+    case self.level
       when 0
         0
       when 1
