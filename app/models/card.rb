@@ -6,8 +6,8 @@ class Card < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   before_create do
     self.review_date = Time.now
-    self.level = 0
-    self.attempt = 1
+    #self.level = 0
+    #self.attempt = 1
   end
 
   def set_review_period
