@@ -62,7 +62,7 @@ RSpec.describe Card, type: :model do
   it "review date shouldn't decrease to 3 days when attempt less than 3 and translate is false" do
     card = Card.new(original_text: "house", level: 3, attempt: 2, review_date: Time.now)
     card.increase_review_date(false)
-    expect(card.review_date.strftime('%d/%m/%Y')).to eq((Time.now.utc).strftime('%d/%m/%Y'))
+    expect(card.review_date.strftime('%d/%m/%Y')).to eq(Time.now.utc.strftime('%d/%m/%Y'))
   end
 
   it "level must be increase up to 1 when result translate is true" do
