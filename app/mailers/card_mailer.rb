@@ -1,0 +1,2 @@
+class CardMailer < ApplicationMailer
+end
