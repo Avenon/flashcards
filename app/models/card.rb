@@ -7,11 +7,14 @@ class Card < ActiveRecord::Base
   before_create do
     self.review_date = Time.now
     self.level = 0
+    self.attempt = 1
   end
 
   def set_level
     level = self.level
     case level
+      when 0
+        level = 0
       when 1
         level = 12.hours
       when 2
@@ -27,13 +30,19 @@ class Card < ActiveRecord::Base
 
   def increase_review_date(review)
     if review == true
+      update(attempt: 1) if self.attempt <= 3
       update(level: self.level + 1) if self.level < 5
       level = self.set_level
       update(review_date: self.review_date + level)
     else
-      update(level: self.level - 1) if self.level > 0
-      level = self.set_level
-      update(review_date: self.review_date + level)
+      if self.attempt < 3
+        update(attempt: self.attempt + 1)
+      else
+        update(attempt: self.attempt - 1) if self.level >0
+        update(level: self.level - 1) if self.level > 0
+        level = self.set_level
+        update(review_date: self.review_date - level)
+      end
     end
   end
 
