@@ -6,10 +6,35 @@ class Card < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   before_create do
     self.review_date = Time.now
+    self.level = 0
   end
 
-  def increase_review_date
-    update(review_date: self.review_date + 3.days)
+  def set_level
+    level = self.level
+    case level
+      when 1
+        level = 12.hours
+      when 2
+        level = 3.days
+      when 3
+        level = 1.weeks
+      when 4
+        level = 2.weeks
+      when 5
+        level = 1.month
+    end
+  end
+
+  def increase_review_date(review)
+    if review == true
+      update(level: self.level + 1) if self.level < 5
+      level = self.set_level
+      update(review_date: self.review_date + level)
+    else
+      update(level: self.level - 1) if self.level > 0
+      level = self.set_level
+      update(review_date: self.review_date + level)
+    end
   end
 
   def self.find_random_card

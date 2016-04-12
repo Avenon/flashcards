@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   def check_card
     @card = current_user.cards.find(get_home_params[:id])
     result = @card.check_translate(get_home_params[:usertext])
-    @card.increase_review_date
+    @card.increase_review_date(result)
     flash[:notice] =
       if result
         "Успех! Перевод верен"
