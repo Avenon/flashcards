@@ -15,12 +15,13 @@ class HomeController < ApplicationController
     result = @card.check_translate(get_home_params[:usertext])
     @card.increase_review_date(result)
     flash[:notice] =
-      if result
+      if result == 0
         "Успех! Перевод верен"
-      else
+      elsif result > 1
         "Ошибка! Перевод ошибочный"
+      elsif result == 1
+        "Возможно у вас опечатка. Ваш вариант: #{get_home_params[:usertext]} Оригинал: #{@card.original_text}"
       end
-
     redirect_to root_path
   end
 

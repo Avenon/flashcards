@@ -44,6 +44,6 @@ class Card < ActiveRecord::Base
   end
 
   def check_translate(usertext)
-    usertext.mb_chars.casecmp(original_text.mb_chars) == 0
+    Levenshtein.distance(usertext.downcase, original_text.downcase)
   end
 end

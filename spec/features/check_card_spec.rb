@@ -22,8 +22,15 @@ describe 'Check card translate' do
 
   it "incorrect translation must be show 'Ошибка'" do
     visit root_path
-    fill_in "home_usertext", with: 'test2'
+    fill_in "home_usertext", with: 'teedest2'
     click_button('Проверить')
     expect(page).to have_content('Ошибка! Перевод ошибочный')
+  end
+
+  it "incorrect translation with one mistake must be show 'Опечатка'" do
+    visit root_path
+    fill_in "home_usertext", with: 'test2'
+    click_button('Проверить')
+    expect(page).to have_content('Возможно у вас опечатка')
   end
 end
