@@ -29,13 +29,11 @@ class Card < ActiveRecord::Base
     if review
       self.level += 1 if self.level < 5
       update(review_date: self.review_date + self.set_review_period, attempt: 1, level: self.level)
-    else
-      if self.attempt < 3
+    elsif self.attempt < 3
         update(attempt: self.attempt + 1)
-      else
+    else
         self.level -= 1 if self.level > 1
         update(review_date: self.review_date - self.set_review_period, attempt: 1, level: self.level)
-      end
     end
   end
 
