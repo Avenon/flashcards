@@ -8,8 +8,33 @@ class Card < ActiveRecord::Base
     self.review_date = Time.now
   end
 
-  def increase_review_date
-    update(review_date: self.review_date + 3.days)
+  def set_review_period
+    case self.level
+      when 0
+        0
+      when 1
+        12.hours
+      when 2
+        3.days
+      when 3
+        1.weeks
+      when 4
+        2.weeks
+      when 5
+        1.month
+    end
+  end
+
+  def increase_review_date(review)
+    if review
+      self.level += 1 if self.level < 5
+      update(review_date: self.review_date + self.set_review_period, attempt: 1, level: self.level)
+    elsif self.attempt < 3
+      update(attempt: self.attempt + 1)
+    else
+      self.level -= 1 if self.level > 1
+      update(review_date: self.review_date - self.set_review_period, attempt: 1, level: self.level)
+    end
   end
 
   def self.find_random_card
