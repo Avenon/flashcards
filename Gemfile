@@ -22,13 +22,22 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# simple_form, гем для работы с формами в руби
 gem 'simple_form'
+# nokogiri, гем для парсинга веб-страниц
 gem 'nokogiri'
+# sorcery, гем для создания простой аутентификации, авторизации сайта
 gem 'sorcery'
+# carrierwave, гем для работы с изображениями
 gem 'carrierwave'
+# mini_magick, позволяет использовать консольные команды работы с изображеним
 gem 'mini_magick'
+# levenshtein-ffi, гем реализующий алгоритм расстояния Левенштейна
 gem 'levenshtein-ffi', :require => 'levenshtein'
+# whenever, гем позволяющий создавать расписание, используя cron
 gem 'whenever', require: false
+# http_accept_language, ищет accept-Language, в header запросе, веб-страницы
+gem 'http_accept_language'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
