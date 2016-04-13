@@ -3,7 +3,6 @@ class CardMailer < ApplicationMailer
 
   def send_expired_cards(email)
     @email = email
-    @cards = Card.where('review_date<?', Time.now)
     mail(to: @email, subject: "У вас есть непроверенные карточки")
   end
 end
