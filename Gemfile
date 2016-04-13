@@ -28,6 +28,7 @@ gem 'sorcery'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'levenshtein-ffi', :require => 'levenshtein'
+gem 'whenever', require: false
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
