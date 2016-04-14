@@ -7,15 +7,15 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      redirect_back_or_to(:users, notice: 'Вы успешно вошли')
+      redirect_back_or_to(:users, notice: (t :logged_success))
     else
-      flash.now[:alert] = 'Неверный логин'
+      flash.now[:alert] = (t :login_wrong)
       render action: 'new'
     end
   end
 
   def destroy
     logout
-    redirect_to(root_path, notice: 'Вы вышли из системы!')
+    redirect_to(root_path, notice: (t :logged_out)
   end
 end

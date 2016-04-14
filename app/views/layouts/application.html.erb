@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Флэшкарточкер</title>
+  <title><%= t :flashcards %></title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -11,16 +11,16 @@
 <body class="container">
   <header class="row">
     <div class="col-md-10">
-      <h1>Флэшкарточкер</h1>
+      <h1><%= t :flashcards %></h1>
     </div>
     <div id="nav" class="col-md-2">
     <% if current_user %>
-      <%= link_to "Профиль", edit_user_path(current_user.id), class: "btn btn-info btn-xs"  %>
-      <%= link_to "Выход", :logout, method: :post, class: "btn btn-info btn-xs"  %>
+      <%= link_to (t :profile), edit_user_path(current_user.id), class: "btn btn-info btn-xs"  %>
+      <%= link_to (t :sign_out), :logout, method: :post, class: "btn btn-info btn-xs"  %>
     <% else %>
-      <%= link_to "Регистрация", new_user_path, class: "btn btn-info btn-xs"  %> |
-      <%= link_to "Войти", :login, class: "btn btn-info btn-xs"  %>
-      <%= link_to 'Войти через Twitter', auth_at_provider_path(:provider => :twitter) %>
+      <%= link_to (t :sign_up), new_user_path, class: "btn btn-info btn-xs"  %> |
+      <%= link_to (t :sign_in), :login, class: "btn btn-info btn-xs"  %>
+      <%= link_to 'Twitter', auth_at_provider_path(:provider => :twitter) %>
     <% end %>
   </div>
   <div>
@@ -32,10 +32,10 @@
     <nav class="row">
       <div class="col-md-12">
         <ul class="list-unstyled list-inline">
-          <li><%= link_to 'Все карточки', cards_path, class: "btn btn-info" %></li>
-          <li><%= link_to 'Добавить карточку', new_card_path, class: "btn btn-info" %></li>
-          <li><%= link_to 'Все колоды', decks_path, class: "btn btn-info" %></li>
-          <li><%= link_to 'Добавить колоду', new_deck_path, class: "btn btn-info" %></li>
+          <li><%= link_to (t :all_cards), cards_path, class: "btn btn-info" %></li>
+          <li><%= link_to (t :add_card), new_card_path, class: "btn btn-info" %></li>
+          <li><%= link_to (t :all_decks), decks_path, class: "btn btn-info" %></li>
+          <li><%= link_to (t :add_deck), new_deck_path, class: "btn btn-info" %></li>
         </ul>
       </div>
     </nav>

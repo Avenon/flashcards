@@ -1,18 +1,18 @@
 <p>
-  Первый в мире удобный менеджер флеш-карточек. Именно так.
+  <%= t :description %>
 </p>
 <% unless @card.exists? %>
-<h3> Карточки кончились </h3>
+<h3><%= t :end_cards %></h3>
 <% else %>
-<h3> Введите оригинальный текст </h3>
+<h3><%= t :check_translate_title %></h3>
 <% @card.each do |i| %>
-Введите перевод слова:  <b> <%= i.translated_text %></b>
+<%= t :check_translate_word %>:  <b> <%= i.translated_text %></b>
 
 <%= simple_form_for :home, url: { action: "check_card" }, html: { multipart: true } do |f| %>
   <%= image_tag(i.avatar_url) if i.avatar? %>
   <%= f.input_field :usertext, class: "usertext"  %>
   <%= f.hidden_field :id, value: i.id %>
-  <%= f.button :submit, "Проверить", class: "btn btn-info btn-sm" %>
+  <%= f.button :submit, (t :check_translate), class: "btn btn-info btn-sm" %>
       <% end %>
   <% end %>
 <% end %>
