@@ -1,0 +1,73 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ru:
+  flashcards: "Флэшкарточкер"
+  logged_need: "Сначала нужно войти в систему"
+  sign_in: "Войти"
+  email: "Электронная почта"
+  password: "Пароль"
+  password_confirm: "Повтор пороля"
+  back: "Назад"
+  sign_up: "Регистрация"
+  all_cards: "Все карточки"
+  add_card: "Добавить карточку"
+  all_decks: "Все колоды"
+  add_deck: "Добавить колоду"
+  logged_success: "Вы успешно залогинились"
+  description: "Первый в мире удобный менеджер флеш-карточек. Именно так."
+  end_cards: "Карточки кончились"
+  profile: "Профиль"
+  edit_profile: "Изменить профиль"
+  sign_out: "Выход"
+  original_text: "Оригинальный текст"
+  translated_text: "Переведенный текст"
+  review_date: "Дата проверки"
+  deck: "Колода"
+  action: "Действия"
+  show: "Показать"
+  edit: "Изменить"
+  del_card: "Удалить карточку"
+  show_card_title: "Карточка"
+  new_card_title: "Создать карточку"
+  edit_card_title: "Редактировать карточку"
+  del_confirm: "Уверены?"
+  browse_file: "Обзор..."
+  no_file_selected: "Файл не выбран"
+  edit_confirm: "Сохранить изменения"
+  deck_description: "Название колоды"
+  active_status: "Активная колода"
+  del_deck: "Удалить колоду"
+  new_deck_title: "Создать колоду"
+  edit_deck_title: "Редактировать колоду"
+  change_active_status: "Активировать/Снять активность"
+  check_translate_title: "Введите оригинальный текст"
+  check_translate_word: "Введите перевод слова:"
+  check_translate: "Проверить перевод"
+  translate_error: "Ошибка! Перевод ошибочный"
+  translate_succes: "Успех! Перевод верен"
+  translate_mistake: "Возможно у вас опечатка."
+  translate_user_text: "Ваш вариант:"
+  validates_presence: "Поле не может быть пустым!"
+  validates_compare: "Поля не могут быть одинаковы!"
+  validates_password_confirmation: "Пароли не совпадают"
+  validates_password_length: "Пароль не может быть короче 3х символов"
+  validates_email_uniq: "Пользователь с таким e-mail уже существует!"
