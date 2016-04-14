@@ -16,6 +16,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(root_path, notice: (t :logged_out)
+    redirect_to(root_path, notice: (t :logged_out))
   end
 end
