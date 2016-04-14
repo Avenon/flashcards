@@ -46,4 +46,10 @@ class Card < ActiveRecord::Base
   def check_translate(usertext)
     Levenshtein.distance(usertext.downcase, original_text.downcase)
   end
+
+  def self.send_mails
+    Card.select(:user_id).distinct.where('review_date<?', Time.now).map do |i|
+      CardMailer.send_expired_cards(User.find(i.user_id).email).deliver_now
+    end
+  end
 end
