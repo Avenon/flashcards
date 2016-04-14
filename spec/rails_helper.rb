@@ -74,7 +74,4 @@ RSpec.configure do |config|
   config.after(:each) do # ну и после каждого теста чистильшик подчишает базу
     DatabaseCleaner.clean
   end
-  config.before(:each) do # устанавливаем локаль по умолчанию для всех тестов
-    I18n.locale = "ru"
-  end
 end
