@@ -25,7 +25,7 @@
 </div>
 <div class="field">
    <%= f.label (t :user_locale) %><br />
-   <%= f.text_field :locale %>
+   <%= f.select :locale, I18n.available_locales.map { |locale| [locale] }, include_blank: false %>
 </div>
   <div class="actions">
     <%= f.submit %>

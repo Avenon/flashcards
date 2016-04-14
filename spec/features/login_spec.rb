@@ -9,7 +9,7 @@ describe 'Check user login' do
     fill_in :email, with: "test@test.ru"
     fill_in :password, with: "test"
     click_button "Войти"
-    expect(page).to have_content('Вы успешно вошли')
+    expect(page).to have_content('Вы успешно залогинились')
   end
 
   it "User must be loggin incorrect" do

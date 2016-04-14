@@ -7,6 +7,7 @@ describe 'Check register user' do
     fill_in :user_email, with: "test10@test10.ru"
     fill_in :user_password, with: "test10"
     fill_in :user_password_confirmation, with: "test10"
+    page.select :ru, from: :user_locale
     click_button "Create User"
     expect(page).to have_content('Первый в мире удобный менеджер флеш-карточек. Именно так')
   end
