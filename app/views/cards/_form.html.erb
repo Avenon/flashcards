@@ -1,5 +1,5 @@
 <div class="form-group">
-  <%= f.label :deck_id, "Колода", class: 'col-sm-2 control-label' %>
+  <%= f.label :deck_id, (t :deck), class: 'col-sm-2 control-label' %>
     <div class="col-sm-3">
         <%= f.select :deck_id, @decks.map { |r| [r.description, r.id] }, include_blank: false %>
     </div>
@@ -8,7 +8,7 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :original_text, "Оригинальный текст", class: 'col-sm-2 control-label' %>
+  <%= f.label :original_text, (t :original_text), class: 'col-sm-2 control-label' %>
     <div class="col-sm-3">
       <%= f.input_field :original_text, as: :string, :required => false, class: "form-control" %>
     </div>
@@ -16,7 +16,7 @@
     </div>
 </div>
 <div class="form-group">
-  <%= f.label :translated_text, "Переведенный текст", class: 'col-sm-2 control-label' %>
+  <%= f.label :translated_text, (t :translated_text), class: 'col-sm-2 control-label' %>
     <div class="col-sm-3">
       <%= f.input_field :translated_text, as: :string, :required => false, class: "form-control" %>
     </div>
@@ -24,7 +24,7 @@
     </div>
 </div>
 <div class="form-group">
-  <%= f.label :review_date, "Дата проверки", class: 'col-sm-2 control-label' %>
+  <%= f.label :review_date, (t :review_date), class: 'col-sm-2 control-label' %>
     <div class="col-sm-3">
       <%= f.input_field :review_date, as: :string, value: (Time.now).strftime('%d/%m/%Y'), class: "form-control"  %>
   </div>

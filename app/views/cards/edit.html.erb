@@ -1,4 +1,4 @@
-<h2> Редактирование карточки</h2>
+<h2> <%= t :edit_card_title %></h2>
 <div class="form-horizontal">
 <%= simple_form_for @card do |f| %>
 <%= render partial: "form", locals: { f: f } %>
@@ -6,7 +6,7 @@
 <%= f.file_field :avatar %>
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-<%= f.button :submit, "Сохранить изменения", class: "btn btn-info btn-sm" %>
+<%= f.button :submit, (t :edit_confirm), class: "btn btn-info btn-sm" %>
 </div>
 </div>
 <% end %>

@@ -12,20 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label (t :email) %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-   <%= f.label :password %><br />
+   <%= f.label (t :password) %><br />
    <%= f.password_field :password %>
 </div>
 <div class="field">
-   <%= f.label :password_confirmation %><br />
+   <%= f.label (t :password_confirm) %><br />
    <%= f.password_field :password_confirmation %>
+</div>
+<div class="field">
+   <%= f.label (t :user_locale) %><br />
+   <%= f.select :locale, I18n.available_locales.map { |locale| [locale] }, include_blank: false %>
 </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
-

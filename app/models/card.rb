@@ -26,7 +26,7 @@ class Card < ActiveRecord::Base
   end
 
   def increase_review_date(review)
-    if review
+    if review == 0
       self.level += 1 if self.level < 5
       update(review_date: self.review_date + self.set_review_period, attempt: 1, level: self.level)
     elsif self.attempt < 3

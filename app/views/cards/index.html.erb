@@ -1,14 +1,14 @@
 <h2>
-  Все карточки
+  <%= t :all_cards %>
 </h2>
 
 <table class="table table-bordered">
   <tr class="info">
-    <th>Слово</th>
-    <th>Перевод</th>
-    <th>Дата проверки</th>
-    <th>Колода</th>
-    <th>Действия</th>
+    <th><%= t :original_text %></th>
+    <th><%= t :translated_text %></th>
+    <th><%= t :review_date %></th>
+    <th><%= t :deck %></th>
+    <th><%= t :action %></th>
   </tr>
 
   <% @cards.each do |card| %>
@@ -17,10 +17,9 @@
       <td><%= card.translated_text %></td>
       <td><%= card.review_date.strftime('%d/%m/%Y') %></td>
       <td><%= card.deck_id %></td>
-      <td><%= link_to 'показать', card_path(card), class: "btn btn-info btn-xs" %>
-        <%= link_to 'изменить', edit_card_path(card), class: "btn btn-info btn-xs" %>
-        <%= link_to "Удалить карточку", card_path(card), method: :delete, data: { confirm: "Уверены?" }, class: "btn btn-info btn-xs" %></td>
+      <td><%= link_to (t :show), card_path(card), class: "btn btn-info btn-xs" %>
+        <%= link_to (t :edit), edit_card_path(card), class: "btn btn-info btn-xs" %>
+        <%= link_to (t :del_card), card_path(card), method: :delete, data: { confirm: (t :del_confirm) }, class: "btn btn-info btn-xs" %></td>
     </tr>
   <% end %>
 </table>
-

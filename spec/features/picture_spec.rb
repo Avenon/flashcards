@@ -6,15 +6,15 @@ describe 'Check picture upload' do
 
   it "Picture must be load success" do
     visit root_path
-    click_link "Войти"
+    click_link I18n.t :sign_in
     fill_in :email, with: "test@test.ru"
     fill_in :password, with: "test"
-    click_button "Войти"
-    click_link "Добавить карточку"
+    click_button I18n.t :sign_in
+    click_link I18n.t :add_card
     fill_in :card_original_text, with: "test"
     fill_in :card_translated_text, with: "тест"
     attach_file :card_avatar, "#{Rails.root}/spec/support/images/test.jpg"
-    click_button "Создать"
+    click_button I18n.t :new_card_title
     visit root_path
     expect(page).to have_css("img[src*='test.jpg']")
   end

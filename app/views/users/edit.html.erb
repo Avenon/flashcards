@@ -1,6 +1,6 @@
-<h2>Реактировать профиль</h2>
+<h2><%= t :edit_profile %></h2>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to (t :show), @user %> |
+<%= link_to (t :back), users_path %>
